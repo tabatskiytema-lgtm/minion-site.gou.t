@@ -1,0 +1,76 @@
+index.html.<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ошибка</title>
+
+<style>
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+}
+
+#error {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+button {
+    padding: 14px 25px;
+    border: 0;
+    border-radius: 10px;
+    background: #1677ff;
+    color: white;
+    font-size: 18px;
+}
+
+#screen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: black;
+}
+
+#minion {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+</style>
+</head>
+
+<body>
+
+<div id="error">
+    <h2>⚠️ Произошла ошибка</h2>
+    <p>Попробуйте перезагрузить страницу.</p>
+    <button onclick="start()">🔄 Перезагрузить</button>
+</div>
+
+<div id="screen">
+    <img id="minion" src="minion.jpg">
+    <audio id="sound" src="sound.mp3"></audio>
+</div>
+
+<script>
+function start() {
+    document.getElementById("error").style.display = "none";
+    document.getElementById("screen").style.display = "block";
+
+    const sound = document.getElementById("sound");
+    sound.currentTime = 0;
+    sound.play();
+}
+</script>
+
+</body>
+</html>
